@@ -22,10 +22,25 @@
 
         td {
             padding: 30px;
+            cursor: pointer;
+            position: relative;
+        } 
+
+        td:hover::after {
+            padding: 30px;
+            cursor: pointer;
+            position: relative;
         }
 
         table {
-            border-collapse: collapse;
+            background-color: blue;
+            content: '\00a0';
+            height: 10000px;
+            left: 0;
+            position: absolute;
+            top: -5000px;
+            width: 100%;
+            z-index: -1;
         }
 
         h3,
