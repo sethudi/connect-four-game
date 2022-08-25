@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        td{
+            border: 1px solid black;
+            vertical-align: center;
+            height: 50px;
+            width: 50px;
+        
+        }
+        table{
+            border-collapse: collapse;
+            transform: rotate(-90deg);
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        tr:hover{
+            background-color: gray;
+        }
+        .circle{
+            background: white;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+        }
+        #color-Red{
+            background-color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+
+        class App extends React.Component {
+
+            constructor(props) {
+                super(props);
+                this.state = {
+                    turn: 'Red',
+                    idx1: 0,
+                    isRed: 'circle',
+                    row1: new Array(7).fill(<div className="circle"></div>),
+                    row2: new Array(7).fill(<div className="circle"></div>),
+                    row3: new Array(7).fill(<div className="circle"></div>),
+                    row4: new Array(7).fill(<div className="circle"></div>),
+                    row5: new Array(7).fill(<div className="circle"></div>),
+                    row6: new Array(7).fill(<div className="circle"></div>),
+                    row7: new Array(7).fill(<div className="circle"></div>),
+                };
+            }
+            render() {
+                
+
+                return (
+                    <div>
+                        <h1>Connect 4</h1>
+                        <h2>You win by having four Circles in a row</h2>
+                        <h3>Turn: {this.state.turn}</h3>
+                        <table>
+               
+                            <tbody>
+                                <tr onClick={() => {
+                                    
+                                    console.log('hello jjko oooo ooooo o');
+                                    if (this.state.idx1 < this.state.row1.length) {
+                                        this.state.isRed = 'color-Red';
+                                        this.state.row1[0].style.background = 'red';
+                                        this.state.idx1 ++;
+                                    }
+                                    
+                                    
+                                }}>
+                                    {this.state.row1.map((cell, idx) => {
+                                        return <td className="table-cell" key ={idx}>  {cell} </td>
+                                    })}
+                                </tr>
+
+                                <tr >
+                                    {this.state.row2.map((cell, idx) => {
+                                        return <td className="table-cell" key ={idx}> {cell} </td>
+                                    })}
+                                </tr>
+                                <tr >
+                                    {this.state.row3.map((cell, idx) => {
+                                        return <td className="table-cell" key ={idx}> {cell} </td>
+                                    })}
+                                </tr>
+                                <tr >
+                                    {this.state.row4.map((cell, idx) => {
+                                        return <td className="table-cell" key ={idx}> {cell} </td>
+                                    })}
+                                </tr>
+
+                                <tr >
+                                    {this.state.row5.map((cell, idx) => {
+                                        return <td className="table-cell" key ={idx}> {cell} </td>
+                                    })}
+                                </tr>
+
+                                <tr >
+                                    {this.state.row6.map((cell, idx) => {
+                                        return <td className="table-cell" key ={idx}> {cell} </td>
+                                    })}
+                                </tr>
+
+                                <tr >
+                                    {this.state.row7.map((cell, idx) => {
+                                        return <td className="table-cell" key ={idx}> {cell} </td>
+                                    })}
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(<App />, document.querySelector("#app"));
+
+    </script>
+</body>
+
+</html>
